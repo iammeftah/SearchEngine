@@ -30,10 +30,10 @@ const ResultsPage: React.FC = () => {
     }, [query]);
 
     return (
-        <div className="min-h-screen flex flex-col relative overflow-hidden bg-white dark:bg-gray-900 text-black dark:text-white">
+        <div className="min-h-screen flex flex-col relative overflow-hidden bg-white dark:bg-neutral-900 text-black dark:text-white">
             <Header />
             <div className="flex-grow flex flex-col items-center justify-start py-24 px-4 relative ">
-                <div className="w-full max-w-7xl z-10 bg-white/80 dark:bg-gray-900/80 rounded-lg mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="w-full max-w-7xl z-10 bg-white/80 dark:bg-neutral-900/80 rounded-lg mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="mb-8 max-w-md">
                         <SearchForm />
                     </div>
@@ -67,7 +67,7 @@ const ResultsPage: React.FC = () => {
                                         key={doc.id}
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 transition-transform duration-200 hover:scale-105"
+                                        className="bg-white dark:bg-neutral-800 shadow-md rounded-lg p-6 transition-transform duration-200 hover:scale-105"
                                     >
                                         <Link to={`/document/${doc.id}`} className="block">
                                             <h3 className="text-xl font-semibold mb-2 text-primary hover:underline">{doc.title}</h3>

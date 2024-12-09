@@ -36,59 +36,66 @@ const AddDocumentForm: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-white dark:bg-[#1F1F1F]">
-            <form className="max-w-4xl mx-auto px-4 py-6">
-                <div className="flex items-center gap-4 mb-8 text-neutral-400">
-                    <button
-                        type="button"
-                        className="text-sm hover:text-neutral-300"
-                        onClick={() => handleFormatting('bold')}
-                    >
-                        Bold
-                    </button>
-                    <button
-                        type="button"
-                        className="text-sm hover:text-neutral-300"
-                        onClick={() => handleFormatting('italic')}
-                    >
-                        Italic
-                    </button>
-                    <button
-                        type="button"
-                        className="text-sm hover:text-neutral-300"
-                        onClick={() => handleFormatting('underline')}
-                    >
-                        Underline
-                    </button>
-                    <button
-                        type="button"
-                        className="text-sm hover:text-neutral-300"
-                        onClick={handleSave}
-                    >
-                        Save
-                    </button>
-                </div>
-
-                <input
-                    type="text"
-                    value={title}
-                    onChange={handleTitleChange}
-                    placeholder="Untitled"
-                    className="w-full text-4xl font-bold mb-4 bg-transparent border-none outline-none placeholder-neutral-500 text-neutral-900 dark:text-neutral-100"
-                />
-
-                <div
-                    ref={editorRef}
-                    contentEditable
-                    onInput={handleContentChange}
-                    className="min-h-[calc(100vh-200px)] outline-none text-neutral-900 dark:text-neutral-100 text-lg"
-                />
-
-                {isSaving && (
-                    <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-white dark:bg-[#2F2F2F] rounded-lg shadow-xl p-4 w-80 border border-neutral-200 dark:border-[#404040]">
-                        <p className="text-neutral-500 dark:text-neutral-400">Saving document...</p>
+        <div className="min-h-screen bg-white dark:bg-black">
+            <form className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+                <div className="bg-neutral-200 dark:bg-neutral-900 p-4 rounded-2xl">
+                    <div className="flex items-center justify-between gap-4 mb-8 text-neutral-400 rounded-lg px-4 py-1 bg-white dark:bg-black">
+                        <div className="flex flex-row gap-4 ">
+                            <button
+                                type="button"
+                                className="outline-none text-sm hover:text-neutral-300"
+                                onClick={() => handleFormatting('bold')}
+                            >
+                                Bold
+                            </button>
+                            <button
+                                type="button"
+                                className="outline-none text-sm hover:text-neutral-300"
+                                onClick={() => handleFormatting('italic')}
+                            >
+                                Italic
+                            </button>
+                            <button
+                                type="button"
+                                className="outline-none text-sm hover:text-neutral-300"
+                                onClick={() => handleFormatting('underline')}
+                            >
+                                Underline
+                            </button>
+                        </div>
+                        <button
+                            type="button"
+                            className="outline-none text-sm hover:text-neutral-300"
+                            onClick={handleSave}
+                        >
+                            Save
+                        </button>
                     </div>
-                )}
+
+                    <div className="px-2">
+                        <input
+                            type="text"
+                            value={title}
+                            onChange={handleTitleChange}
+                            placeholder="Untitled"
+                            className="w-full text-4xl font-bold mb-4 bg-transparent border-none outline-none placeholder-neutral-500 text-neutral-900 dark:text-neutral-100 caret-neutral-600 dark:caret-neutral-300"
+                        />
+                    </div>
+
+                    <div
+                        ref={editorRef}
+                        contentEditable
+                        onInput={handleContentChange}
+                        className=" px-2 min-h-[calc(100vh-200px)] outline-none text-neutral-900 dark:text-neutral-100 text-lg caret-neutral-600 dark:caret-neutral-300"
+                    />
+
+                    {isSaving && (
+                        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-white dark:bg-black rounded-lg shadow-xl p-4 w-80 border border-neutral-200 dark:border-[#404040]">
+                            <p className="text-neutral-500 dark:text-neutral-400">Saving document...</p>
+                        </div>
+                    )}
+
+                </div>
             </form>
         </div>
     );
