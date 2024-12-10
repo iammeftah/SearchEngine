@@ -16,7 +16,7 @@ const AddDocumentPage: React.FC = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100">
+        <div className="min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100">
             <Header />
             {isLoading ? (
                 <div className="flex justify-center items-center h-[calc(100vh-64px)]">

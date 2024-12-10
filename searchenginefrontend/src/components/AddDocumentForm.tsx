@@ -176,10 +176,10 @@ const AddDocumentForm: React.FC = () => {
                     setShowListOptions(!showListOptions);
                     setShowFontSizes(false);
                 }}
-                className="flex items-center gap-1 p-2 rounded bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700"
+                className="flex items-center w-8 h-8 rounded-full px-1 bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600"
             >
                 <ListOrdered size={16} />
-                <ChevronDown size={12} />
+                <ChevronDown size={16} />
             </button>
             {showListOptions && (
                 <div className="absolute z-50 w-32 mt-1 bg-white dark:bg-neutral-800 rounded shadow-lg border border-neutral-200 dark:border-neutral-700">
@@ -224,10 +224,10 @@ const AddDocumentForm: React.FC = () => {
                     setShowFontSizes(!showFontSizes);
                     setShowListOptions(false);
                 }}
-                className="outline-none flex items-center gap-1 px-2 py-1 rounded bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700"
+                className="outline-none flex items-center justify-center px-2 h-8 w-8 rounded-full bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600"
             >
                 <span className="font-bold">T</span>
-                <ChevronDown size={12} />
+                <ChevronDown size={16} />
             </button>
             {showFontSizes && (
                 <div className="absolute z-50 w-32 mt-1 bg-white dark:bg-neutral-800 rounded shadow-lg border border-neutral-200 dark:border-neutral-700">
@@ -283,15 +283,12 @@ const AddDocumentForm: React.FC = () => {
     }, []);
 
     return (
-        <div className="min-h-screen py-20 bg-white dark:bg-neutral-900">
+        <div className="min-h-screen py-20 bg-white dark:bg-neutral-950">
             <form className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-                <div className="bg-neutral-100 dark:bg-neutral-800 p-4 rounded-2xl">
-                    <div className="grid grid-cols-[auto,1fr,auto] items-center gap-4 mb-8 text-neutral-600 dark:text-neutral-300 rounded-lg px-4 py-2 bg-white dark:bg-neutral-900">
+                <div className="bg-neutral-100 dark:bg-neutral-900 p-4 rounded-2xl">
+                    <div className="grid grid-cols-[auto,1fr,auto] items-center gap-4 mb-8 text-neutral-600 dark:text-neutral-300 rounded-lg px-4 py-2 bg-white dark:bg-neutral-800">
                         <div className="flex items-center gap-2">
                             {[
-                                { icon: () => <span className="font-bold w-8">H1</span>, format: 'heading-1', label: 'Heading 1' },
-                                { icon: () => <span className="font-bold w-8">H2</span>, format: 'heading-2', label: 'Heading 2' },
-                                { icon: () => <span className="font-bold w-8">H3</span>, format: 'heading-3', label: 'Heading 3' },
                                 { icon: Bold, format: 'bold', label: 'Bold' },
                                 { icon: Italic, format: 'italic', label: 'Italic' },
                                 { icon: Underline, format: 'underline', label: 'Underline' },
@@ -303,7 +300,7 @@ const AddDocumentForm: React.FC = () => {
                                 <button
                                     key={format}
                                     type="button"
-                                    className={`h-8 w-8 flex items-center justify-center rounded transition-colors ${
+                                    className={`h-8 w-8 rounded-full flex items-center justify-center transition-colors ${
                                         isFormatActive(format)
                                             ? 'bg-neutral-700 dark:bg-neutral-300 text-white dark:text-neutral-900'
                                             : 'bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600'
@@ -320,7 +317,7 @@ const AddDocumentForm: React.FC = () => {
                         <div /> {/* Spacer */}
                         <button
                             type="button"
-                            className="flex items-center gap-2 px-4 py-2 rounded bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 text-neutral-900 dark:text-neutral-100"
+                            className="flex items-center h-8 px-2 rounded-full gap-2 bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 text-neutral-900 dark:text-neutral-100"
                             onClick={handleSave}
                         >
                             <Save size={16} />
@@ -334,7 +331,7 @@ const AddDocumentForm: React.FC = () => {
                             value={title}
                             onChange={handleTitleChange}
                             placeholder="Untitled"
-                            className="w-full text-4xl font-bold mb-4 bg-transparent border-none outline-none placeholder-neutral-400 dark:placeholder-neutral-500 text-neutral-900 dark:text-neutral-100"
+                            className="w-full text-4xl font-bold mb-4 bg-transparent border-none outline-none placeholder-neutral-400 dark:placeholder-neutral-500 text-neutral-900 dark:text-neutral-100 caret-neutral-500"
                         />
                     </div>
 

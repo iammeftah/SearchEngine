@@ -41,7 +41,7 @@ const DocumentPage: React.FC = () => {
     }, [id]);
 
     return (
-        <div className="min-h-screen flex flex-col bg-white dark:bg-neutral-900 text-black dark:text-white">
+        <div className="min-h-screen flex flex-col bg-white dark:bg-neutral-950 text-black dark:text-white">
             <Header />
             <div className="flex-grow flex flex-col items-center justify-start py-24 px-4">
                 <motion.div

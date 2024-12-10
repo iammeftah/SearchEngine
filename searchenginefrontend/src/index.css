@@ -40,3 +40,9 @@ code {
   background: #be123c;
 }
 
+
+button{
+  @apply duration-300
+}
+
+
