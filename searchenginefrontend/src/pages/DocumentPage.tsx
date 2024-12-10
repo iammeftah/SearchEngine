@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getDocument } from '../api';
 import Header from '../components/Layout/Header';
+import { ChevronsLeft } from 'lucide-react';
+import Loader from '../components/Loader';
 
 interface Document {
     id?: string;
@@ -19,6 +21,8 @@ const DocumentPage: React.FC = () => {
         const fetchDocument = async () => {
             if (id) {
                 setIsLoading(true);
+                // Simulate a delay to show the loader
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 try {
                     const doc = await getDocument(id);
                     if (doc) {
@@ -41,21 +45,22 @@ const DocumentPage: React.FC = () => {
             <Header />
             <div className="flex-grow flex flex-col items-center justify-start py-24 px-4">
                 <motion.div
-                    className="w-full max-w-4xl z-10 bg-white/80 dark:bg-neutral-900/80 rounded-lg p-8 shadow-lg"
+                    className="w-full max-w-7xl z-10 bg-white/80 dark:bg-neutral-900/80 rounded-lg p-8 shadow-lg"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
                     {isLoading ? (
-                        <p className="text-center text-xl">Loading...</p>
+                        <div className="flex justify-center items-center h-[calc(100vh-300px)]">
+                            <Loader />
+                        </div>
                     ) : document ? (
                         <>
                             <h1 className="text-3xl font-bold mb-6">{document.title}</h1>
-                            <div className="prose dark:prose-invert max-w-none">
-                                {document.content?.split('\n').map((paragraph, index) => (
-                                    <p key={index} className="mb-4">{paragraph}</p>
-                                ))}
-                            </div>
+                            <div
+                                className="prose dark:prose-invert max-w-none"
+                                dangerouslySetInnerHTML={{ __html: document.content || '' }}
+                            />
                         </>
                     ) : (
                         <p className="text-center text-xl">Document not found</p>
@@ -68,9 +73,9 @@ const DocumentPage: React.FC = () => {
                     >
                         <Link
                             to="/"
-                            className="text-primary hover:text-primary-dark transition-colors duration-200"
+                            className="flex flex-row gap-2 text-primary hover:text-primary-dark transition-colors duration-200"
                         >
-                            ← Back to search
+                            <ChevronsLeft className="text-sm" /> Back to search
                         </Link>
                     </motion.div>
                 </motion.div>

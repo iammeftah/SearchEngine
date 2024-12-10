@@ -1,34 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Sun, Moon, Laptop } from 'lucide-react';
+import { useDarkMode } from '../contexts/DarkModeContext';
 
 type Theme = 'light' | 'dark' | 'system';
 
 const DarkModeToggle: React.FC = () => {
-    const [theme, setTheme] = useState<Theme>('light');
-
-    useEffect(() => {
-        const savedTheme = localStorage.getItem('theme') as Theme;
-        if (savedTheme) {
-            setTheme(savedTheme);
-        }
-    }, []);
-
-    useEffect(() => {
-        localStorage.setItem('theme', theme);
-        if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    }, [theme]);
+    const { theme, setTheme } = useDarkMode();
 
     const toggleTheme = () => {
-        setTheme(current => {
-            if (current === 'light') return 'dark';
-            if (current === 'dark') return 'system';
-            return 'light';
-        });
+        let newTheme: Theme;
+        if (theme === 'light') newTheme = 'dark';
+        else if (theme === 'dark') newTheme = 'system';
+        else newTheme = 'light';
+
+        setTheme(newTheme);
     };
 
     return (
@@ -45,4 +31,3 @@ const DarkModeToggle: React.FC = () => {
 };
 
 export default DarkModeToggle;
-

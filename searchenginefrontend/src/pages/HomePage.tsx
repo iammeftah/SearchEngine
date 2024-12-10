@@ -58,7 +58,7 @@ const HomePage: React.FC = () => {
                         rotate: 360
                     }}
                     transition={{
-                        duration: 40,
+                        duration: 30,
                         repeat: Infinity,
                         ease: "linear"
                     }}

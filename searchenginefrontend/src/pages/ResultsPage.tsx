@@ -4,14 +4,13 @@ import { motion } from 'framer-motion';
 import { searchDocuments } from '../api';
 import Header from '../components/Layout/Header';
 import SearchForm from '../components/SearchForm';
+import Loader from '../components/Loader';
 
 interface Document {
     id: string;
     title: string;
     excerpt: string;
 }
-
-
 
 const ResultsPage: React.FC = () => {
     const [results, setResults] = useState<Document[]>([]);
@@ -22,6 +21,8 @@ const ResultsPage: React.FC = () => {
     useEffect(() => {
         const fetchResults = async () => {
             setIsLoading(true);
+            // Simulate a delay to show the loader
+            await new Promise(resolve => setTimeout(resolve, 2000));
             const documents = await searchDocuments(query);
             setResults(documents);
             setIsLoading(false);
@@ -32,7 +33,7 @@ const ResultsPage: React.FC = () => {
     return (
         <div className="min-h-screen flex flex-col relative overflow-hidden bg-white dark:bg-neutral-900 text-black dark:text-white">
             <Header />
-            <div className="flex-grow flex flex-col items-center justify-start py-24 px-4 relative ">
+            <div className="flex-grow flex flex-col items-center justify-start py-24 px-4 relative">
                 <div className="w-full max-w-7xl z-10 bg-white/80 dark:bg-neutral-900/80 rounded-lg mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="mb-8 max-w-md">
                         <SearchForm />
@@ -41,9 +42,9 @@ const ResultsPage: React.FC = () => {
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            className="text-center text-xl"
+                            className="flex justify-center items-center h-[calc(100vh-300px)]"
                         >
-                            Loading...
+                            <Loader />
                         </motion.div>
                     ) : results.length === 0 ? (
                         <motion.div
