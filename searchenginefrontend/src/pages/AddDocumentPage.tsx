@@ -16,7 +16,7 @@ const AddDocumentPage: React.FC = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+        <div className="min-h-screen bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100">
             <Header />
             {isLoading ? (
                 <div className="flex justify-center items-center h-[calc(100vh-64px)]">
@@ -27,7 +27,7 @@ const AddDocumentPage: React.FC = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
-                    className="mt-20 px-4 sm:px-6 lg:px-8"
+                    className="px-4 sm:px-6 lg:px-8 "
                 >
                     <AddDocumentForm />
                 </motion.div>

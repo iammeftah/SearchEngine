@@ -283,10 +283,10 @@ const AddDocumentForm: React.FC = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-white dark:bg-gray-900">
-            <form className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-2xl">
-                    <div className="grid grid-cols-[auto,1fr,auto] items-center gap-4 mb-8 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 bg-white dark:bg-gray-900">
+        <div className="min-h-screen py-20 bg-white dark:bg-neutral-900">
+            <form className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+                <div className="bg-neutral-100 dark:bg-neutral-800 p-4 rounded-2xl">
+                    <div className="grid grid-cols-[auto,1fr,auto] items-center gap-4 mb-8 text-neutral-600 dark:text-neutral-300 rounded-lg px-4 py-2 bg-white dark:bg-neutral-900">
                         <div className="flex items-center gap-2">
                             {[
                                 { icon: () => <span className="font-bold w-8">H1</span>, format: 'heading-1', label: 'Heading 1' },
@@ -305,8 +305,8 @@ const AddDocumentForm: React.FC = () => {
                                     type="button"
                                     className={`h-8 w-8 flex items-center justify-center rounded transition-colors ${
                                         isFormatActive(format)
-                                            ? 'bg-gray-700 dark:bg-gray-300 text-white dark:text-gray-900'
-                                            : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600'
+                                            ? 'bg-neutral-700 dark:bg-neutral-300 text-white dark:text-neutral-900'
+                                            : 'bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600'
                                     }`}
                                     onClick={() => handleFormatting(format)}
                                     aria-label={label}
@@ -320,7 +320,7 @@ const AddDocumentForm: React.FC = () => {
                         <div /> {/* Spacer */}
                         <button
                             type="button"
-                            className="flex items-center gap-2 px-4 py-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100"
+                            className="flex items-center gap-2 px-4 py-2 rounded bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 text-neutral-900 dark:text-neutral-100"
                             onClick={handleSave}
                         >
                             <Save size={16} />
@@ -334,7 +334,7 @@ const AddDocumentForm: React.FC = () => {
                             value={title}
                             onChange={handleTitleChange}
                             placeholder="Untitled"
-                            className="w-full text-4xl font-bold mb-4 bg-transparent border-none outline-none placeholder-gray-400 dark:placeholder-gray-500 text-gray-900 dark:text-gray-100"
+                            className="w-full text-4xl font-bold mb-4 bg-transparent border-none outline-none placeholder-neutral-400 dark:placeholder-neutral-500 text-neutral-900 dark:text-neutral-100"
                         />
                     </div>
 
@@ -344,7 +344,7 @@ const AddDocumentForm: React.FC = () => {
                         onInput={handleContentChange}
                         onKeyUp={updateActiveFormats}
                         onMouseUp={updateActiveFormats}
-                        className="px-6 min-h-[calc(100vh-200px)] outline-none text-gray-900 dark:text-gray-100 prose dark:prose-invert prose-lg max-w-none caret-gray-900 dark:caret-gray-100
+                        className="px-6 min-h-[300px] outline-none text-neutral-900 dark:text-neutral-100 prose dark:prose-invert prose-lg max-w-none caret-neutral-900 dark:caret-neutral-100
                             [&>*]:mb-4
                             [&>p]:leading-relaxed
                             [&>h1]:text-4xl [&>h1]:font-bold [&>h1]:leading-tight
@@ -353,7 +353,7 @@ const AddDocumentForm: React.FC = () => {
                             [&>ol]:list-decimal [&>ul]:list-disc
                             [&>ol,&>ul]:pl-8 [&>ol,&>ul]:mb-4
                             [&>ol>li,&>ul>li]:pl-4 [&>ol>li,&>ul>li]:mb-2
-                            [&>ol>li::marker,&>ul>li::marker]:text-gray-500
+                            [&>ol>li::marker,&>ul>li::marker]:text-neutral-500
                             [&>ol>li::marker]:mr-4
                             [&>ul>li::marker]:mr-4
                             [&>ol]:relative [&>ul]:relative

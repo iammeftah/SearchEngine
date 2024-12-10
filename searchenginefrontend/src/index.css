@@ -20,13 +20,23 @@ code {
     monospace;
 }
 
-/* Add this CSS class */
-.no-spinners {
-  -moz-appearance: textfield;
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
 }
 
-.no-spinners::-webkit-outer-spin-button,
-.no-spinners::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #ffEEEE;
 }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #e11d48;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #be123c;
+}
+
